@@ -17,10 +17,6 @@ function uploadClick() {
   document.getElementById("uploadInput").click();
 };
 
-window.onbeforeunload = function () {
-    return "Are you sure";
-};
-
 function download() {
   var link = document.createElement("a");
   document.body.appendChild(link);
