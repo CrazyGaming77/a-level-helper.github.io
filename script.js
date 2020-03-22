@@ -6,6 +6,7 @@ var topics;
 var learntPercentage;
 var consolidatedPercentage;
 var template;
+var fileUploaded = false;
 
 
 function uploadClick() {
@@ -42,6 +43,7 @@ function fileSetup(event) {
   var reader = new FileReader();
   reader.onload = () => JSONFormat (reader.result);
   reader.readAsText(file.files[0]);
+  fileUploaded = true;
   document.getElementById('uploadButton').disabled = false;
 };
 
