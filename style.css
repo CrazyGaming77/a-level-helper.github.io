@@ -28,6 +28,10 @@ button {
     display: inline-block;
 }
 
+button:focus {
+	outline:0;
+}
+
 button:hover {
 	background-color: var(--darkBlue);
 	color: white;
