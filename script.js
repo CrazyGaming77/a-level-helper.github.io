@@ -19,6 +19,8 @@ function uploadClick() {
 };
 
 function download() {
+  fileUploaded = false;
+  document.getElementById('uploadButton').disabled = true;
   var link = document.createElement("a");
   document.body.appendChild(link);
   link.href = 'data:text/plain;charset=utf-8,' + JSON.stringify(percentages);
