@@ -54,7 +54,6 @@ function JSONFormat(data) {
   if (!(subject in percentages)){
     percentages[subject] = template;
   };
-  console.log(percentages);
   learntPercentage = parseInt(percentages[subject].learnt.replace('%', ''));
   consolidatedPercentage = parseInt(percentages[subject].consolidated.replace('%', ''));
   barRefresh();
@@ -80,11 +79,11 @@ function barRefresh() {
 function learntChange(element) {
   topicNumber = parseInt(element.value);
   if (element.checked) {
-    learntPercentage += 100 / topics;
+    learntPercentage += Math.round(((100 / topics)+Number.EPSILON)*100)/100;
     percentages[subject].learnt = learntPercentage.toString() + '%';
     percentages[subject].topicsLearnt[topicNumber] = true;
   } else {
-    learntPercentage -= 100 / topics;
+    learntPercentage -= Math.round(((100 / topics)+Number.EPSILON)*100)/100;
     percentages[subject].learnt = learntPercentage.toString() + '%';
     percentages[subject].topicsLearnt[topicNumber] = false;
   };
@@ -94,11 +93,11 @@ function learntChange(element) {
 function consolidatedChange(element) {
   topicNumber = parseInt(element.value);
   if (element.checked) {
-    consolidatedPercentage += 100 / topics;
+    consolidatedPercentage += Math.round(((100 / topics)+Number.EPSILON)*100)/100;
     percentages[subject].consolidated = consolidatedPercentage.toString() + '%';
     percentages[subject].topicsConsolidated[topicNumber] = true;
   } else {
-    consolidatedPercentage -= 100 / topics;
+    consolidatedPercentage -= Math.round(((100 / topics)+Number.EPSILON)*100)/100;
     percentages[subject].consolidated = consolidatedPercentage.toString() + '%';
     percentages[subject].topicsConsolidated[topicNumber] = false;
   };
