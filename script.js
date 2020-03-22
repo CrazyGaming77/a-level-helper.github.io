@@ -61,10 +61,10 @@ function JSONFormat(data) {
 }
 
 function barRefresh() {
-  document.documentElement.style.setProperty('--learntCompleted', percentages[subject].learnt);
-  document.getElementById("learntText").innerHTML = percentages[subject].learnt;
-  document.documentElement.style.setProperty('--consolidatedCompleted', percentages[subject].consolidated);
-  document.getElementById("consolidatedText").innerHTML = percentages[subject].consolidated;
+  document.documentElement.style.setProperty('--learntCompleted', Math.round(parseInt(percentages[subject].learnt.replace("%", ""))) + '%');
+  document.getElementById("learntText").innerHTML = Math.round(parseInt(percentages[subject].learnt.replace("%", ""))) + '%';
+  document.documentElement.style.setProperty('--consolidatedCompleted', Math.round(parseInt(percentages[subject].consolidated.replace("%", ""))) + '%');
+  document.getElementById("consolidatedText").innerHTML = Math.round(parseInt(percentages[subject].consolidated.replace("%", ""))) + '%';
   for (i=0; i<topics+1; i++) {
     if(percentages[subject].topicsLearnt[i]) {
       document.querySelectorAll(".topicLearn")[i-1].checked = true;
@@ -81,11 +81,11 @@ function learntChange(element) {
   topicNumber = parseInt(element.value);
   if (element.checked) {
     learntPercentage += 100 / topics;
-    percentages[subject].learnt = Math.round(learntPercentage).toString() + '%';
+    percentages[subject].learnt = learntPercentage.toString() + '%';
     percentages[subject].topicsLearnt[topicNumber] = true;
   } else {
     learntPercentage -= 100 / topics;
-    percentages[subject].learnt = Math.round(learntPercentage).toString() + '%';
+    percentages[subject].learnt = learntPercentage.toString() + '%';
     percentages[subject].topicsLearnt[topicNumber] = false;
   };
   barRefresh();
@@ -95,11 +95,11 @@ function consolidatedChange(element) {
   topicNumber = parseInt(element.value);
   if (element.checked) {
     consolidatedPercentage += 100 / topics;
-    percentages[subject].consolidated = Math.round(consolidatedPercentage).toString() + '%';
+    percentages[subject].consolidated = consolidatedPercentage.toString() + '%';
     percentages[subject].topicsConsolidated[topicNumber] = true;
   } else {
     consolidatedPercentage -= 100 / topics;
-    percentages[subject].consolidated = Math.round(consolidatedPercentage).toString() + '%';
+    percentages[subject].consolidated = consolidatedPercentage.toString() + '%';
     percentages[subject].topicsConsolidated[topicNumber] = false;
   };
   barRefresh();

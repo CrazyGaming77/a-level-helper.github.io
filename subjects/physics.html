@@ -1,0 +1,255 @@
+<script>
+</script>
+
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <base href="../">
+    <link href="images/Favicon.png" rel="shortcut icon">
+    <title>Ross</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+  </head>
+
+  <script>
+    subject = "physics";
+    template={"learnt":"0%","consolidated":"0%", "topicsLearnt": {"1":false, "2":false, "3":false, "4":false, "5":false, "6":false, "7":false, "8":false, "9":false, "10":false, "11":false, "12":false, "13":false},"topicsConsolidated": {"1":false, "2":false, "3":false, "4":false, "5":false, "6":false, "7":false, "8":false, "9":false, "10":false, "11":false, "12":false, "13":false}};
+    window.onbeforeunload = function () {
+      if(fileUploaded) {
+      return "Are you sure";
+      };
+    };
+  </script>
+
+<body>
+  <h1 id="mainTitle" style="margin-top:30px">A Level Progress Tracker</h1>
+
+  <div id="navBar">
+    <a href="index.html">Home</a><!--
+    --><a href="subjects.html">Subjects</a><!--
+    --><a href=quickstart.html>Quick Start Guide</a>
+  </div>
+
+  <div class="mainContent">
+    <h1>Physics</h1>
+
+    <h3 style="text-align:center">Learnt</h3>
+    <div class="learnt">
+      <div class="learntBarBack">
+        <div id="learntBar"><div id="learntText">0%</div></div>
+      </div>
+    </div>
+
+    <h3 style="text-align:center">Consolidated</h3>
+    <div class="consolidated">
+      <div class="consolidatedBarBack">
+        <div id="consolidatedBar"><div id="consolidatedText">0%</div></div>
+      </div>
+    </div>
+
+    <div class="uploadWrapper">
+      <button onclick="uploadClick()">Upload Progress</button>
+      <input type="file" id="uploadInput" onchange="fileSetup(event)" hidden />
+      <button disabled="true" id="uploadButton" onclick="download()">Save Progress</button>
+    </div>
+
+      <div class="topics" style="width:60%">
+
+      <div class="topicsLearnt">
+        <h2>Learnt</h2>
+        <label class="checkboxContainer"><p class="topicName">Measurements and their Errors</p>
+          <input type="checkbox" value = "1" onclick="learntChange(this)" class="topicLearn">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Particles and Radiation</p>
+          <input type="checkbox" value = "2" onclick="learntChange(this)" class="topicLearn">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Waves</p>
+          <input type="checkbox" value = "3" onclick="learntChange(this)" class="topicLearn">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Mechanics and Materials</p>
+          <input type="checkbox" value = "4" onclick="learntChange(this)" class="topicLearn">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Electricity</p>
+          <input type="checkbox" value = "5" onclick="learntChange(this)" class="topicLearn">
+          <span class="checkmark"></span>
+        </label>          
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Further Mechanics and Thermal Physics</p>
+          <input type="checkbox" value = "6" onclick="learntChange(this)" class="topicLearn">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Fields and their Consequences</p>
+          <input type="checkbox" value = "7" onclick="learntChange(this)" class="topicLearn">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Nuclear Physics</p>
+          <input type="checkbox" value = "8" onclick="learntChange(this)" class="topicLearn">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Astrophysics</p>
+          <input type="checkbox" value = "9" onclick="learntChange(this)" class="topicLearn">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Medical Physics</p>
+          <input type="checkbox" value = "10" onclick="learntChange(this)" class="topicLearn">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Engineering Physics</p>
+          <input type="checkbox" value = "11" onclick="learntChange(this)" class="topicLearn">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Turning Points in Physics</p>
+          <input type="checkbox" value = "12" onclick="learntChange(this)" class="topicLearn">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Electronics</p>
+          <input type="checkbox" value = "13" onclick="learntChange(this)" class="topicLearn">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+
+      <div class="topicsConsolidated">
+        <h2>Consolidated</h2>
+        <label class="checkboxContainer"><p class="topicName">Measurements and their Errors</p>
+          <input type="checkbox" value = "1" onclick="consolidatedChange(this)" class="topicConsolidate">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Particles and Radiation</p>
+          <input type="checkbox" value = "2" onclick="consolidatedChange(this)" class="topicConsolidate">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Waves</p>
+          <input type="checkbox" value = "3" onclick="consolidatedChange(this)" class="topicConsolidate">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Mechanics and Materials</p>
+          <input type="checkbox" value = "4" onclick="consolidatedChange(this)" class="topicConsolidate">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Electricity</p>
+          <input type="checkbox" value = "5" onclick="consolidatedChange(this)" class="topicConsolidate">
+          <span class="checkmark"></span>
+        </label>          
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Further Mechanics and Thermal Physics</p>
+          <input type="checkbox" value = "6" onclick="consolidatedChange(this)" class="topicConsolidate">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Fields and their Consequences</p>
+          <input type="checkbox" value = "7" onclick="consolidatedChange(this)" class="topicConsolidate">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Nuclear Physics</p>
+          <input type="checkbox" value = "8" onclick="consolidatedChange(this)" class="topicConsolidate">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Astrophysics</p>
+          <input type="checkbox" value = "9" onclick="consolidatedChange(this)" class="topicConsolidate">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Medical Physics</p>
+          <input type="checkbox" value = "10" onclick="consolidatedChange(this)" class="topicConsolidate">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Engineering Physics</p>
+          <input type="checkbox" value = "11" onclick="consolidatedChange(this)" class="topicConsolidate">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Turning Points in Physics</p>
+          <input type="checkbox" value = "12" onclick="consolidatedChange(this)" class="topicConsolidate">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Electronics</p>
+          <input type="checkbox" value = "13" onclick="consolidatedChange(this)" class="topicConsolidate">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    </div>
+    <div style="text-align:center">
+      <h2>Resources</h2>
+      <a target="_blank" href="https://filestore.aqa.org.uk/resources/physics/specifications/AQA-7407-7408-SP-2015.PDF" ><button>AQA Specification</button></a>
+      <a target="_blank" href="https://www.focuselearning.co.uk/programmes/?programme=a-physics-rp&frompack=20" ><button>Required Practicals</button></a>
+      <a target="_blank" href="https://www.aqa.org.uk/subjects/science/as-and-a-level/physics-7407-7408/assessment-resources" ><button>AQA Past Papers</button></a>
+      <a target="_blank" href="https://www.physicsandmathstutor.com/physics-revision/a-level-aqa/" ><button>Physics and Maths Tutor</button></a>
+      <a target="_blank" href="https://isaacphysics.org/alevel" ><button>Isaac Physics</button></a>
+  </div>
+</div>
+  <div class="footer"></div>
+  </body>
+</html>
