@@ -1,0 +1,309 @@
+<script>
+</script>
+
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <base href="../">
+    <link href="images/Favicon.png" rel="shortcut icon">
+    <title>Ross</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+  </head>
+
+  <script>
+    subject = "electronics";
+    template={"learnt":"0%","consolidated":"0%", "topicsLearnt": {"1":false, "2":false, "3":false, "4":false, "5":false, "6":false, "7":false, "8":false, "9":false, "10":false, "11":false, "12":false, "13":false, "14":false, "15":false, "16":false},"topicsConsolidated": {"1":false, "2":false, "3":false, "4":false, "5":false, "6":false, "7":false, "8":false, "9":false, "10":false, "11":false, "12":false, "13":false, "14":false, "15":false, "16":false}};
+    window.onbeforeunload = function () {
+      if(fileUploaded) {
+      return "Are you sure";
+      };
+    };
+  </script>
+
+<body>
+  <h1 id="mainTitle" style="margin-top:30px">A Level Progress Tracker</h1>
+
+  <div id="navBar">
+    <a href="index.html">Home</a><!--
+    --><a href="subjects.html">Subjects</a><!--
+    --><a href=quickstart.html>Quick Start Guide</a>
+  </div>
+
+  <div class="mainContent">
+    <h1>Electronics</h1>
+
+    <h3 style="text-align:center">Learnt</h3>
+    <div class="learnt">
+      <div class="learntBarBack">
+        <div id="learntBar"><div id="learntText">0%</div></div>
+      </div>
+    </div>
+
+    <h3 style="text-align:center">Consolidated</h3>
+    <div class="consolidated">
+      <div class="consolidatedBarBack">
+        <div id="consolidatedBar"><div id="consolidatedText">0%</div></div>
+      </div>
+    </div>
+
+    <div class="uploadWrapper">
+      <button onclick="uploadClick()">Upload Progress</button>
+      <input type="file" id="uploadInput" onchange="fileSetup(event)" hidden />
+      <button disabled="true" id="uploadButton" onclick="download()">Save Progress</button>
+    </div>
+
+      <div class="topics">
+
+      <div class="topicsLearnt">
+        <h2>Learnt</h2>
+        <div style="width:45%;float:left"> <!-- Component 1 -->
+          <h3>Component 1</h3>
+          <label class="checkboxContainer"><p class="topicName">Semiconductor Components</p>
+            <input type="checkbox" value = "1" onclick="learntChange(this)" class="topicLearn">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Logic Systems</p>
+            <input type="checkbox" value = "2" onclick="learntChange(this)" class="topicLearn">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Operational Amplifiers</p>
+            <input type="checkbox" value = "3" onclick="learntChange(this)" class="topicLearn">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Signal Conversion</p>
+            <input type="checkbox" value = "4" onclick="learntChange(this)" class="topicLearn">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">AC Circuits and Passive Filters</p>
+            <input type="checkbox" value = "5" onclick="learntChange(this)" class="topicLearn">
+            <span class="checkmark"></span>
+          </label>          
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Communications Systems</p>
+            <input type="checkbox" value = "6" onclick="learntChange(this)" class="topicLearn">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Wireless Transmission</p>
+            <input type="checkbox" value = "7" onclick="learntChange(this)" class="topicLearn">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Instrumentation Systems</p>
+            <input type="checkbox" value = "8" onclick="learntChange(this)" class="topicLearn">
+            <span class="checkmark"></span>
+          </label>
+
+        </div>
+
+        <div style="width:45%;float:right"> <!-- Component 2 -->
+          <h3>Component 2</h3>
+          <label class="checkboxContainer"><p class="topicName">Timing Circuits</p>
+            <input type="checkbox" value = "9" onclick="learntChange(this)" class="topicLearn">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Sequential Logic Systems</p>
+            <input type="checkbox" value = "10" onclick="learntChange(this)" class="topicLearn">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Microcontrollers</p>
+            <input type="checkbox" value = "11" onclick="learntChange(this)" class="topicLearn">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Digital Communications</p>
+            <input type="checkbox" value = "12" onclick="learntChange(this)" class="topicLearn">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Optical Communication</p>
+            <input type="checkbox" value = "13" onclick="learntChange(this)" class="topicLearn">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Mains Power Supply Systems</p>
+            <input type="checkbox" value = "14" onclick="learntChange(this)" class="topicLearn">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">High Power Switching Systems</p>
+            <input type="checkbox" value = "15" onclick="learntChange(this)" class="topicLearn">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Audio Systems</p>
+            <input type="checkbox" value = "16" onclick="learntChange(this)" class="topicLearn">
+            <span class="checkmark"></span>
+          </label>
+
+        </div>
+      </div>
+
+      <div class="topicsConsolidated">
+        <h2>Consolidated</h2>
+        <div style="width:45%;float:left"> <!-- Component 1 -->
+          <h3>Component 1</h3>
+          <label class="checkboxContainer"><p class="topicName">Semiconductor Components</p>
+            <input type="checkbox" value = "1" onclick="consolidatedChange(this)" class="topicConsolidate">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Logic Systems</p>
+            <input type="checkbox" value = "2" onclick="consolidatedChange(this)" class="topicConsolidate">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Operational Amplifiers</p>
+            <input type="checkbox" value = "3" onclick="consolidatedChange(this)" class="topicConsolidate">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Signal Conversion</p>
+            <input type="checkbox" value = "4" onclick="consolidatedChange(this)" class="topicConsolidate">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">AC Circuits and Passive Filters</p>
+            <input type="checkbox" value = "5" onclick="consolidatedChange(this)" class="topicConsolidate">
+            <span class="checkmark"></span>
+          </label>          
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Communications Systems</p>
+            <input type="checkbox" value = "6" onclick="consolidatedChange(this)" class="topicConsolidate">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Wireless Transmission</p>
+            <input type="checkbox" value = "7" onclick="consolidatedChange(this)" class="topicConsolidate">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Instrumentation Systems</p>
+            <input type="checkbox" value = "8" onclick="consolidatedChange(this)" class="topicConsolidate">
+            <span class="checkmark"></span>
+          </label>
+
+        </div>
+
+        <div style="width:45%;float:right"> <!-- Component 2 -->
+          <h3>Component 2</h3>
+          <label class="checkboxContainer"><p class="topicName">Timing Circuits</p>
+            <input type="checkbox" value = "9" onclick="consolidatedChange(this)" class="topicConsolidate">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Sequential Logic Systems</p>
+            <input type="checkbox" value = "10" onclick="consolidatedChange(this)" class="topicConsolidate">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Microcontrollers</p>
+            <input type="checkbox" value = "11" onclick="consolidatedChange(this)" class="topicConsolidate">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Digital Communications</p>
+            <input type="checkbox" value = "12" onclick="consolidatedChange(this)" class="topicConsolidate">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Optical Communication</p>
+            <input type="checkbox" value = "13" onclick="consolidatedChange(this)" class="topicConsolidate">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Mains Power Supply Systems</p>
+            <input type="checkbox" value = "14" onclick="consolidatedChange(this)" class="topicConsolidate">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">High Power Switching Systems</p>
+            <input type="checkbox" value = "15" onclick="consolidatedChange(this)" class="topicConsolidate">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Audio Systems</p>
+            <input type="checkbox" value = "16" onclick="consolidatedChange(this)" class="topicConsolidate">
+            <span class="checkmark"></span>
+          </label>
+
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center">
+      <h2>Resources</h2>
+      <a target="_blank" href="https://www.wjec.co.uk/qualifications/electronics/eduqas-electronics-a-level-from-2017/eduqas-a-level-electronics-spec-from-2017-e.pdf" ><button>Specification</button></a>
+      <a target="_blank" href="http://www.falstad.com/circuit/" ><button>Circuit Simulator</button></a>
+      <a target="_blank" href="https://www.wjec.co.uk/qualifications/qualification-resources.html?subject=Electronics&level=GCEASA&pastpaper=true" ><button>Past Papers (Old Spec)</button></a>
+      <a target="_blank" href="https://resources.eduqas.co.uk/Pages/ResourceSingle.aspx?rIid=937" ><button>AS Level eBook</button></a>
+      <a target="_blank" href="https://resources.eduqas.co.uk/Pages/ResourceSingle.aspx?rIid=1179" ><button>A Level eBook</button></a>
+  </div>
+</div>
+  <div class="footer"></div>
+  </body>
+</html>
