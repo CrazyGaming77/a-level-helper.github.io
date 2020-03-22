@@ -42,6 +42,7 @@ function fileSetup(event) {
   var reader = new FileReader();
   reader.onload = () => JSONFormat (reader.result);
   reader.readAsText(file.files[0]);
+  document.getElementById('uploadButton').disabled = false;
 };
 
 function JSONFormat(data) {
