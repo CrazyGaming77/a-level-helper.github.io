@@ -1,0 +1,280 @@
+<script>
+</script>
+
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <base href="../">
+    <link href="images/Favicon.png" rel="shortcut icon">
+    <title>Ross</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+  </head>
+
+  <script>
+    subject = "economics";
+    template={"learnt":"0%","consolidated":"0%", "topicsLearnt": {"1":false, "2":false, "3":false, "4":false, "5":false, "6":false, "7":false, "8":false, "9":false, "10":false, "11":false, "12":false, "13":false, "14":false},"topicsConsolidated": {"1":false, "2":false, "3":false, "4":false, "5":false, "6":false, "7":false, "8":false, "9":false, "10":false, "11":false, "12":false, "13":false, "14":false}};
+    window.onbeforeunload = function () {
+      if(fileUploaded) {
+      return "Are you sure";
+      };
+    };
+  </script>
+
+<body>
+  <h1 id="mainTitle" style="margin-top:30px">A Level Progress Tracker</h1>
+
+  <div id="navBar">
+    <a href="index.html">Home</a><!--
+    --><a href="subjects.html">Subjects</a><!--
+    --><a href=quickstart.html>Quick Start Guide</a>
+  </div>
+
+  <div class="mainContent">
+    <h1>Economics</h1>
+
+    <h3 style="text-align:center">Learnt</h3>
+    <div class="learnt">
+      <div class="learntBarBack">
+        <div id="learntBar"><div id="learntText">0%</div></div>
+      </div>
+    </div>
+
+    <h3 style="text-align:center">Consolidated</h3>
+    <div class="consolidated">
+      <div class="consolidatedBarBack">
+        <div id="consolidatedBar"><div id="consolidatedText">0%</div></div>
+      </div>
+    </div>
+
+    <div class="uploadWrapper">
+      <button onclick="uploadClick()">Upload Progress</button>
+      <input type="file" id="uploadInput" onchange="fileSetup(event)" hidden />
+      <button disabled="true" id="uploadButton" onclick="download()">Save Progress</button>
+    </div>
+
+      <div class="topics">
+
+      <div class="topicsLearnt">
+        <h2>Learnt</h2>
+        <div style="width:45%;float:left"> <!-- Component 1 -->
+          <h3>Individuals, Firms, Markets and Market Failure</h3>
+          <label class="checkboxContainer"><p class="topicName">Econo0mic Methodology and the Economic Problem</p>
+            <input type="checkbox" value = "1" onclick="learntChange(this)" class="topicLearn">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Individual Economic Decision Making</p>
+            <input type="checkbox" value = "2" onclick="learntChange(this)" class="topicLearn">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Price Determination in a Competetive Market</p>
+            <input type="checkbox" value = "3" onclick="learntChange(this)" class="topicLearn">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Production, Costs and Revenue</p>
+            <input type="checkbox" value = "4" onclick="learntChange(this)" class="topicLearn">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Perfect Competition, Imperfectly Competitive Markets and Monopoly</p>
+            <input type="checkbox" value = "5" onclick="learntChange(this)" class="topicLearn">
+            <span class="checkmark"></span>
+          </label>          
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">The Labour Markets</p>
+            <input type="checkbox" value = "6" onclick="learntChange(this)" class="topicLearn">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">The Distribution of Income and Wealth: Poverty and Inequality</p>
+            <input type="checkbox" value = "7" onclick="learntChange(this)" class="topicLearn">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">The Market Mechanism, Market Failure and Government Intervention in Markets</p>
+            <input type="checkbox" value = "8" onclick="learntChange(this)" class="topicLearn">
+            <span class="checkmark"></span>
+          </label>
+
+        </div>
+
+        <div style="width:45%;float:right"> <!-- Component 2 -->
+          <h3>The National and International Economy</h3>
+          <label class="checkboxContainer"><p class="topicName">The Measurement of Macroeconomic Performance</p>
+            <input type="checkbox" value = "9" onclick="learntChange(this)" class="topicLearn">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">How the Macroeconomy Works: The Circular Flow of Income, AD/AS Analysis and Related Concepts</p>
+            <input type="checkbox" value = "10" onclick="learntChange(this)" class="topicLearn">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Economic Performance</p>
+            <input type="checkbox" value = "11" onclick="learntChange(this)" class="topicLearn">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Financial Markets and Monetary Policy</p>
+            <input type="checkbox" value = "12" onclick="learntChange(this)" class="topicLearn">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Fiscal Policy and Supply-Side Policy</p>
+            <input type="checkbox" value = "13" onclick="learntChange(this)" class="topicLearn">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">The International Economy</p>
+            <input type="checkbox" value = "14" onclick="learntChange(this)" class="topicLearn">
+            <span class="checkmark"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="topicsConsolidated">
+        <h2>Consolidated</h2>
+        <div style="width:45%;float:left"> <!-- Component 1 -->
+          <h3>Individuals, Firms, Markets and Market Failure</h3>
+          <label class="checkboxContainer"><p class="topicName">Econo0mic Methodology and the Economic Problem</p>
+            <input type="checkbox" value = "1" onclick="consolidatedChange(this)" class="topicConsolidate">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Individual Economic Decision Making</p>
+            <input type="checkbox" value = "2" onclick="consolidatedChange(this)" class="topicConsolidate">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Price Determination in a Competetive Market</p>
+            <input type="checkbox" value = "3" onclick="consolidatedChange(this)" class="topicConsolidate">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Production, Costs and Revenue</p>
+            <input type="checkbox" value = "4" onclick="consolidatedChange(this)" class="topicConsolidate">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Perfect Competition, Imperfectly Competitive Markets and Monopoly</p>
+            <input type="checkbox" value = "5" onclick="consolidatedChange(this)" class="topicConsolidate">
+            <span class="checkmark"></span>
+          </label>          
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">The Labour Markets</p>
+            <input type="checkbox" value = "6" onclick="consolidatedChange(this)" class="topicConsolidate">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">The Distribution of Income and Wealth: Poverty and Inequality</p>
+            <input type="checkbox" value = "7" onclick="consolidatedChange(this)" class="topicConsolidate">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">The Market Mechanism, Market Failure and Government Intervention in Markets</p>
+            <input type="checkbox" value = "8" onclick="consolidatedChange(this)" class="topicConsolidate">
+            <span class="checkmark"></span>
+          </label>
+
+        </div>
+
+        <div style="width:45%;float:right"> <!-- Component 2 -->
+          <h3>The National and International Economy</h3>
+          <label class="checkboxContainer"><p class="topicName">The Measurement of Macroeconomic Performance</p>
+            <input type="checkbox" value = "9" onclick="consolidatedChange(this)" class="topicConsolidate">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">How the Macroeconomy Works: The Circular Flow of Income, AD/AS Analysis and Related Concepts</p>
+            <input type="checkbox" value = "10" onclick="consolidatedChange(this)" class="topicConsolidate">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Economic Performance</p>
+            <input type="checkbox" value = "11" onclick="consolidatedChange(this)" class="topicConsolidate">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Financial Markets and Monetary Policy</p>
+            <input type="checkbox" value = "12" onclick="consolidatedChange(this)" class="topicConsolidate">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">Fiscal Policy and Supply-Side Policy</p>
+            <input type="checkbox" value = "13" onclick="consolidatedChange(this)" class="topicConsolidate">
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="br"></div>
+
+          <label class="checkboxContainer"><p class="topicName">The International Economy</p>
+            <input type="checkbox" value = "14" onclick="consolidatedChange(this)" class="topicConsolidate">
+            <span class="checkmark"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <hr>
+    <div style="text-align:center">
+      <h2>Resources</h2>
+      <a target="_blank" href="https://filestore.aqa.org.uk/resources/economics/specifications/AQA-7135-7136-SP-2015.PDF" ><button>AQA Specification</button></a>
+      <a target="_blank" href="https://www.aqa.org.uk/subjects/economics/as-and-a-level/economics-7135-7136/assessment-resources?f.Resource+type%7C6=Question+papers&sort=date&num_ranks=20" ><button>AQA Past Papers</button></a>
+      <a target="_blank" href="https://www.physicsandmathstutor.com/economics-revision/a-level-aqa/" ><button>Physics and Maths Tutor</button></a>
+      <a target="_blank" href="https://www.ezyeducation.co.uk/ezyeconomicsdetails.html" ><button>EzyEconomics</button></a>
+  </div>
+</div>
+  <div class="footer"></div>
+  </body>
+</html>

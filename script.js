@@ -3,8 +3,6 @@ var subject;
 var learntPercentage;
 var consolidatedPercentage;
 var topics;
-var learntPercentage;
-var consolidatedPercentage;
 var template;
 var fileUploaded = false;
 
@@ -79,7 +77,7 @@ function barRefresh() {
 function learntChange(element) {
   topicNumber = parseInt(element.value);
   if (element.checked) {
-    learntPercentage += Math.round(((100 / topics)+Number.EPSILON)*100)/100;
+    learntPercentage += Math.round(((100 / topics)+Number.EPSILON)*1000)/1000;
     percentages[subject].learnt = learntPercentage.toString() + '%';
     percentages[subject].topicsLearnt[topicNumber] = true;
   } else {
