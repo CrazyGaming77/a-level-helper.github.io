@@ -1,0 +1,255 @@
+<script>
+</script>
+
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <base href="../">
+    <link href="images/Favicon.png" rel="shortcut icon">
+    <title>Ross</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+  </head>
+
+  <script>
+    subject = "computer-science";
+    template={"learnt":"0%","consolidated":"0%", "topicsLearnt": {"1":false, "2":false, "3":false, "4":false, "5":false, "6":false, "7":false, "8":false, "9":false, "10":false, "11":false, "12":false, "13":false},"topicsConsolidated": {"1":false, "2":false, "3":false, "4":false, "5":false, "6":false, "7":false, "8":false, "9":false, "10":false, "11":false, "12":false, "13":false}};
+    window.onbeforeunload = function () {
+      if(fileUploaded) {
+      return "Are you sure";
+      };
+    };
+  </script>
+
+<body>
+  <h1 id="mainTitle" style="margin-top:30px">A Level Progress Tracker</h1>
+
+  <div id="navBar">
+    <a href="index.html">Home</a><!--
+    --><a href="subjects.html">Subjects</a><!--
+    --><a href=quickstart.html>Quick Start Guide</a>
+  </div>
+
+  <div class="mainContent">
+    <h1>Computer Science</h1>
+
+    <h3 style="text-align:center">Learnt</h3>
+    <div class="learnt">
+      <div class="learntBarBack">
+        <div id="learntBar"><div id="learntText">0%</div></div>
+      </div>
+    </div>
+
+    <h3 style="text-align:center">Consolidated</h3>
+    <div class="consolidated">
+      <div class="consolidatedBarBack">
+        <div id="consolidatedBar"><div id="consolidatedText">0%</div></div>
+      </div>
+    </div>
+
+    <div class="uploadWrapper">
+      <button onclick="uploadClick()">Upload Progress</button>
+      <input type="file" id="uploadInput" onchange="fileSetup(event)" hidden />
+      <button disabled="true" id="uploadButton" onclick="download()">Save Progress</button>
+    </div>
+
+      <div class="topics" style="width:60%">
+
+      <div class="topicsLearnt">
+        <h2>Learnt</h2>
+        <label class="checkboxContainer"><p class="topicName">Fundamentals of Programming</p>
+          <input type="checkbox" value = "1" onclick="learntChange(this)" class="topicLearn">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Fundamentals of Data Structures</p>
+          <input type="checkbox" value = "2" onclick="learntChange(this)" class="topicLearn">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Fundamentals of Algorithms</p>
+          <input type="checkbox" value = "3" onclick="learntChange(this)" class="topicLearn">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Theory of Computation</p>
+          <input type="checkbox" value = "4" onclick="learntChange(this)" class="topicLearn">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Fundamentals of Data Representation</p>
+          <input type="checkbox" value = "5" onclick="learntChange(this)" class="topicLearn">
+          <span class="checkmark"></span>
+        </label>          
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Fundamentals of Computer Systems</p>
+          <input type="checkbox" value = "6" onclick="learntChange(this)" class="topicLearn">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Fundamentals of Computer Organisation and Architecture</p>
+          <input type="checkbox" value = "7" onclick="learntChange(this)" class="topicLearn">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Consequences and Uses of Computing</p>
+          <input type="checkbox" value = "8" onclick="learntChange(this)" class="topicLearn">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Fundamentals of Communication and Networking</p>
+          <input type="checkbox" value = "9" onclick="learntChange(this)" class="topicLearn">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Fundamentals of Databases</p>
+          <input type="checkbox" value = "10" onclick="learntChange(this)" class="topicLearn">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Big Data</p>
+          <input type="checkbox" value = "11" onclick="learntChange(this)" class="topicLearn">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Fundamentals of Functional Programming</p>
+          <input type="checkbox" value = "12" onclick="learntChange(this)" class="topicLearn">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Systematic Approach to Problem Solving</p>
+          <input type="checkbox" value = "13" onclick="learntChange(this)" class="topicLearn">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+
+      <div class="topicsConsolidated">
+        <h2>Consolidated</h2>
+        <label class="checkboxContainer"><p class="topicName">Fundamentals of Programming</p>
+          <input type="checkbox" value = "1" onclick="consolidatedChange(this)" class="topicConsolidate">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Fundamentals of Data Structures</p>
+          <input type="checkbox" value = "2" onclick="consolidatedChange(this)" class="topicConsolidate">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Fundamentals of Algorithms</p>
+          <input type="checkbox" value = "3" onclick="consolidatedChange(this)" class="topicConsolidate">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Theory of Computation</p>
+          <input type="checkbox" value = "4" onclick="consolidatedChange(this)" class="topicConsolidate">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Fundamentals of Data Representation</p>
+          <input type="checkbox" value = "5" onclick="consolidatedChange(this)" class="topicConsolidate">
+          <span class="checkmark"></span>
+        </label>          
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Fundamentals of Computer Systems</p>
+          <input type="checkbox" value = "6" onclick="consolidatedChange(this)" class="topicConsolidate">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Fundamentals of Computer Organisation and Architecture</p>
+          <input type="checkbox" value = "7" onclick="consolidatedChange(this)" class="topicConsolidate">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Consequences and Uses of Computing</p>
+          <input type="checkbox" value = "8" onclick="consolidatedChange(this)" class="topicConsolidate">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Fundamentals of Communication and Networking</p>
+          <input type="checkbox" value = "9" onclick="consolidatedChange(this)" class="topicConsolidate">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Fundamentals of Databases</p>
+          <input type="checkbox" value = "10" onclick="consolidatedChange(this)" class="topicConsolidate">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Big Data</p>
+          <input type="checkbox" value = "11" onclick="consolidatedChange(this)" class="topicConsolidate">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Fundamentals of Functional Programming</p>
+          <input type="checkbox" value = "12" onclick="consolidatedChange(this)" class="topicConsolidate">
+          <span class="checkmark"></span>
+        </label>
+
+        <div class="br"></div>
+
+        <label class="checkboxContainer"><p class="topicName">Systematic Approach to Problem Solving</p>
+          <input type="checkbox" value = "13" onclick="consolidatedChange(this)" class="topicConsolidate">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    </div>
+    
+    <hr>
+    <div style="text-align:center">
+      <h2>Resources</h2>
+      <a target="_blank" href="https://filestore.aqa.org.uk/resources/computing/specifications/AQA-7516-7517-SP-2015.PDF" ><button>AQA Specification</button></a>
+      <a target="_blank" href="https://www.aqa.org.uk/subjects/computer-science-and-it/as-and-a-level/computer-science-7516-7517/assessment-resources?f.Sub-category%7CF=Sample+papers+and+mark+schemes" ><button>AQA Past Papers</button></a>
+      <a target="_blank" href="https://www.physicsandmathstutor.com/computer-science-revision/a-level-aqa/" ><button>Physics and Maths Tutor</button></a>
+  </div>
+</div>
+  <div class="footer"></div>
+  </body>
+</html>

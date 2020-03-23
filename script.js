@@ -81,7 +81,7 @@ function learntChange(element) {
     percentages[subject].learnt = learntPercentage.toString() + '%';
     percentages[subject].topicsLearnt[topicNumber] = true;
   } else {
-    learntPercentage -= Math.round(((100 / topics)+Number.EPSILON)*100)/100;
+    learntPercentage -= Math.round(((100 / topics)+Number.EPSILON)*1000)/1000;
     percentages[subject].learnt = learntPercentage.toString() + '%';
     percentages[subject].topicsLearnt[topicNumber] = false;
   };
@@ -91,11 +91,11 @@ function learntChange(element) {
 function consolidatedChange(element) {
   topicNumber = parseInt(element.value);
   if (element.checked) {
-    consolidatedPercentage += Math.round(((100 / topics)+Number.EPSILON)*100)/100;
+    consolidatedPercentage += Math.round(((100 / topics)+Number.EPSILON)*1000)/1000;
     percentages[subject].consolidated = consolidatedPercentage.toString() + '%';
     percentages[subject].topicsConsolidated[topicNumber] = true;
   } else {
-    consolidatedPercentage -= Math.round(((100 / topics)+Number.EPSILON)*100)/100;
+    consolidatedPercentage -= Math.round(((100 / topics)+Number.EPSILON)*1000)/1000;
     percentages[subject].consolidated = consolidatedPercentage.toString() + '%';
     percentages[subject].topicsConsolidated[topicNumber] = false;
   };
