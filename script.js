@@ -26,6 +26,9 @@ function download() {
   link.style.display = 'none';
   link.click();
   document.body.removeChild(link);
+  percentages = {};
+  document.getElementById("uploadInput").file = "";
+  barReset();
 };
 
 function downloadTemplate() {
@@ -57,21 +60,32 @@ function JSONFormat(data) {
   barRefresh();
 }
 
+function barReset() {
+	document.documentElement.style.setProperty('--learntCompleted', "0");
+	document.getElementById("learntText").innerHTML = "0%";
+	document.documentElement.style.setProperty('--consolidatedCompleted', "0%");
+	document.getElementById("consolidatedText").innerHTML = "0%";
+  for (i=0; i<topics; i++) {
+    document.querySelectorAll(".topicLearn")[i].checked = false;
+    document.querySelectorAll(".topicConsolidate")[i].checked = false;
+  }
+};
+
 function barRefresh() {
-  document.documentElement.style.setProperty('--learntCompleted', Math.round(parseInt(percentages[subject].learnt.replace("%", ""))) + '%');
-  document.getElementById("learntText").innerHTML = Math.round(parseInt(percentages[subject].learnt.replace("%", ""))) + '%';
-  document.documentElement.style.setProperty('--consolidatedCompleted', Math.round(parseInt(percentages[subject].consolidated.replace("%", ""))) + '%');
-  document.getElementById("consolidatedText").innerHTML = Math.round(parseInt(percentages[subject].consolidated.replace("%", ""))) + '%';
-  for (i=0; i<topics+1; i++) {
-    if(percentages[subject].topicsLearnt[i]) {
-      document.querySelectorAll(".topicLearn")[i-1].checked = true;
-    }
-  }; 
-  for (i=0; i<topics+1; i++) {
-      if(percentages[subject].topicsConsolidated[i]) {
-        document.querySelectorAll(".topicConsolidate")[i-1].checked = true;
-      }
-    }; 
+	document.documentElement.style.setProperty('--learntCompleted', Math.round(parseInt(percentages[subject].learnt.replace("%", ""))) + '%');
+	document.getElementById("learntText").innerHTML = Math.round(parseInt(percentages[subject].learnt.replace("%", ""))) + '%';
+	document.documentElement.style.setProperty('--consolidatedCompleted', Math.round(parseInt(percentages[subject].consolidated.replace("%", ""))) + '%');
+	document.getElementById("consolidatedText").innerHTML = Math.round(parseInt(percentages[subject].consolidated.replace("%", ""))) + '%';
+	for (i=0; i<topics+1; i++) {
+	if(percentages[subject].topicsLearnt[i]) {
+	  document.querySelectorAll(".topicLearn")[i-1].checked = true;
+	}
+	}; 
+	for (i=0; i<topics+1; i++) {
+	  if(percentages[subject].topicsConsolidated[i]) {
+	    document.querySelectorAll(".topicConsolidate")[i-1].checked = true;
+	  }
+	}; 
 };
 
 function learntChange(element) {
