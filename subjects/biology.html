@@ -15,7 +15,7 @@
 
   <script>
     subject = "biology";
-    template={"learnt":"0%","consolidated":"0%", "topicsLearnt": {"1":false, "2":false, "3":false, "4":false, "5":false, "6":false, "7":false, "8":false},"topicsConsolidated": {"1":false, "2":false, "3":false, "4":false, "5":false, "6":false}};
+    template={"learnt":"0%","consolidated":"0%", "topicsLearnt": {"1":false, "2":false, "3":false, "4":false, "5":false, "6":false},"topicsConsolidated": {"1":false, "2":false, "3":false, "4":false, "5":false, "6":false}};
     window.onbeforeunload = function () {
       if(fileUploaded) {
       return "Are you sure";
@@ -102,8 +102,9 @@
 
       <div class="topicsConsolidated">
         <h2>Consolidated</h2>
-        <label class="checkboxContainer"><p class="topicName">Development of Practical Skills in Biology</p>
-          <input type="checkbox" value = "1" onclick="learntChange(this)" onclick="consolidatedChange(this)" class="topicConsolidate"></span>
+         <label class="checkboxContainer"><p class="topicName">Development of Practical Skills in Biology</p>
+          <input type="checkbox" value = "1" onclick="consolidatedChange(this)" class="topicConsolidate">
+          <span class="checkmark"></span>
         </label>
 
         <div class="br"></div>
