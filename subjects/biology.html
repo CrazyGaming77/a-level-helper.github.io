@@ -15,7 +15,7 @@
 
   <script>
     subject = "biology";
-    template={"learnt":"0%","consolidated":"0%", "topicsLearnt": {"1":false, "2":false, "3":false, "4":false, "5":false, "6":false, "7":false, "8":false},"topicsConsolidated": {"1":false, "2":false, "3":false, "4":false, "5":false, "6":false, "7":false, "8":false}};
+    template={"learnt":"0%","consolidated":"0%", "topicsLearnt": {"1":false, "2":false, "3":false, "4":false, "5":false, "6":false, "7":false, "8":false},"topicsConsolidated": {"1":false, "2":false, "3":false, "4":false, "5":false, "6":false}};
     window.onbeforeunload = function () {
       if(fileUploaded) {
       return "Are you sure";
@@ -59,115 +59,85 @@
 
       <div class="topicsLearnt">
         <h2>Learnt</h2>
-        <label class="checkboxContainer"><p class="topicName">Biological Molecules</p>
+        <label class="checkboxContainer"><p class="topicName">Development of Practical Skills in Biology</p>
           <input type="checkbox" value = "1" onclick="learntChange(this)" class="topicLearn">
           <span class="checkmark"></span>
         </label>
 
         <div class="br"></div>
 
-        <label class="checkboxContainer"><p class="topicName">Cells</p>
+        <label class="checkboxContainer"><p class="topicName">Foundations in Biology</p>
           <input type="checkbox" value = "2" onclick="learntChange(this)" class="topicLearn">
           <span class="checkmark"></span>
         </label>
 
         <div class="br"></div>
 
-        <label class="checkboxContainer"><p class="topicName">Organisms Exchange Substances with their Environment</p>
+        <label class="checkboxContainer"><p class="topicName">Exchange and Transport</p>
           <input type="checkbox" value = "3" onclick="learntChange(this)" class="topicLearn">
           <span class="checkmark"></span>
         </label>
 
         <div class="br"></div>
 
-        <label class="checkboxContainer"><p class="topicName">Genetic Information, Variation and Relationships Between Organisms</p>
+        <label class="checkboxContainer"><p class="topicName">Biodiversity, Evolution and Disease</p>
           <input type="checkbox" value = "4" onclick="learntChange(this)" class="topicLearn">
           <span class="checkmark"></span>
         </label>
 
         <div class="br"></div>
 
-        <label class="checkboxContainer"><p class="topicName">Energy Transfers In and Between Organisms</p>
+        <label class="checkboxContainer"><p class="topicName">Communication, Homeostasis and Energy</p>
           <input type="checkbox" value = "5" onclick="learntChange(this)" class="topicLearn">
           <span class="checkmark"></span>
         </label>          
 
         <div class="br"></div>
 
-        <label class="checkboxContainer"><p class="topicName">Organisms Respond to Changes in their Internal and External Environments</p>
+        <label class="checkboxContainer"><p class="topicName">Genetics, Evolution and Ecosystems</p>
           <input type="checkbox" value = "6" onclick="learntChange(this)" class="topicLearn">
           <span class="checkmark"></span>
         </label>
-
-        <div class="br"></div>
-
-        <label class="checkboxContainer"><p class="topicName">Genetics, Populations, Evolution and Ecosystems</p>
-          <input type="checkbox" value = "7" onclick="learntChange(this)" class="topicLearn">
-          <span class="checkmark"></span>
-        </label>
-
-        <div class="br"></div>
-
-        <label class="checkboxContainer"><p class="topicName">The Control of Gene Expression</p>
-          <input type="checkbox" value = "8" onclick="learntChange(this)" class="topicLearn">
-          <span class="checkmark"></span>
-        </label>
-
       </div>
 
       <div class="topicsConsolidated">
         <h2>Consolidated</h2>
-        <label class="checkboxContainer"><p class="topicName">Biological Molecules</p>
-          <input type="checkbox" value = "1" onclick="consolidatedChange(this)" class="topicConsolidate">
-          <span class="checkmark"></span>
+        <label class="checkboxContainer"><p class="topicName">Development of Practical Skills in Biology</p>
+          <input type="checkbox" value = "1" onclick="learntChange(this)" onclick="consolidatedChange(this)" class="topicConsolidate"></span>
         </label>
 
         <div class="br"></div>
 
-        <label class="checkboxContainer"><p class="topicName">Cells</p>
+        <label class="checkboxContainer"><p class="topicName">Foundations in Biology</p>
           <input type="checkbox" value = "2" onclick="consolidatedChange(this)" class="topicConsolidate">
           <span class="checkmark"></span>
         </label>
 
         <div class="br"></div>
 
-        <label class="checkboxContainer"><p class="topicName">Organisms Exchange Substances with their Environment</p>
+        <label class="checkboxContainer"><p class="topicName">Exchange and Transport</p>
           <input type="checkbox" value = "3" onclick="consolidatedChange(this)" class="topicConsolidate">
           <span class="checkmark"></span>
         </label>
 
         <div class="br"></div>
 
-        <label class="checkboxContainer"><p class="topicName">Genetic Information, Variation and Relationships Between Organisms</p>
+        <label class="checkboxContainer"><p class="topicName">Biodiversity, Evolution and Disease</p>
           <input type="checkbox" value = "4" onclick="consolidatedChange(this)" class="topicConsolidate">
           <span class="checkmark"></span>
         </label>
 
         <div class="br"></div>
 
-        <label class="checkboxContainer"><p class="topicName">Energy Transfers In and Between Organisms</p>
+        <label class="checkboxContainer"><p class="topicName">Communication, Homeostasis and Energy</p>
           <input type="checkbox" value = "5" onclick="consolidatedChange(this)" class="topicConsolidate">
           <span class="checkmark"></span>
         </label>          
 
         <div class="br"></div>
 
-        <label class="checkboxContainer"><p class="topicName">Organisms Respond to Changes in their Internal and External Environments</p>
+        <label class="checkboxContainer"><p class="topicName">Genetics, Evolution and Ecosystems</p>
           <input type="checkbox" value = "6" onclick="consolidatedChange(this)" class="topicConsolidate">
-          <span class="checkmark"></span>
-        </label>
-
-        <div class="br"></div>
-
-        <label class="checkboxContainer"><p class="topicName">Genetics, Populations, Evolution and Ecosystems</p>
-          <input type="checkbox" value = "7" onclick="consolidatedChange(this)" class="topicConsolidate">
-          <span class="checkmark"></span>
-        </label>
-
-        <div class="br"></div>
-
-        <label class="checkboxContainer"><p class="topicName">The Control of Gene Expression</p>
-          <input type="checkbox" value = "8" onclick="consolidatedChange(this)" class="topicConsolidate">
           <span class="checkmark"></span>
         </label>
       </div>
@@ -176,9 +146,9 @@
     <hr>
     <div style="text-align:center">
       <h2>Resources</h2>
-      <a target="_blank" href="https://filestore.aqa.org.uk/resources/biology/specifications/AQA-7401-7402-SP-2015.PDF" ><button>AQA Specification</button></a>
-      <a target="_blank" href="https://www.aqa.org.uk/subjects/science/as-and-a-level/biology-7401-7402/assessment-resources?f.Sub-category%7CF=Sample+papers+and+mark+schemes" ><button>AQA Past Papers</button></a>
-      <a target="_blank" href="https://www.physicsandmathstutor.com/biology-revision/a-level-aqa/" ><button>Physics and Maths Tutor</button></a>
+      <a target="_blank" href="https://www.ocr.org.uk/Images/171736-specification-accredited-a-level-gce-biology-a-h420.pdf" ><button>OCR Specification</button></a>
+      <a target="_blank" href="https://www.ocr.org.uk/qualifications/as-and-a-level/biology-a-h020-h420-from-2015/assessment/" ><button>OCR Past Papers</button></a>
+      <a target="_blank" href="https://www.physicsandmathstutor.com/biology-revision/a-level-ocr-a/" ><button>Physics and Maths Tutor</button></a>
   </div>
 </div>
   <div class="footer"></div>
