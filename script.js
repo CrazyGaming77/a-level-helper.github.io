@@ -72,10 +72,10 @@ function barReset() {
 };
 
 function barRefresh() {
-	document.documentElement.style.setProperty('--learntCompleted', Math.round(parseInt(percentages[subject].learnt.replace("%", ""))) + '%');
-	document.getElementById("learntText").innerHTML = Math.round(parseInt(percentages[subject].learnt.replace("%", ""))) + '%';
-	document.documentElement.style.setProperty('--consolidatedCompleted', Math.round(parseInt(percentages[subject].consolidated.replace("%", ""))) + '%');
-	document.getElementById("consolidatedText").innerHTML = Math.round(parseInt(percentages[subject].consolidated.replace("%", ""))) + '%';
+	document.documentElement.style.setProperty('--learntCompleted', Math.round(parseFloat(percentages[subject].learnt.replace("%", ""))) + '%');
+	document.getElementById("learntText").innerHTML = Math.round(parseFloat(percentages[subject].learnt.replace("%", ""))) + '%';
+	document.documentElement.style.setProperty('--consolidatedCompleted', Math.round(parseFloat(percentages[subject].consolidated.replace("%", ""))) + '%');
+	document.getElementById("consolidatedText").innerHTML = Math.round(parseFloat(percentages[subject].consolidated.replace("%", ""))) + '%';
 	for (i=0; i<topics+1; i++) {
 	if(percentages[subject].topicsLearnt[i]) {
 	  document.querySelectorAll(".topicLearn")[i-1].checked = true;
@@ -91,11 +91,11 @@ function barRefresh() {
 function learntChange(element) {
   topicNumber = parseInt(element.value);
   if (element.checked) {
-    learntPercentage += Math.round(((100 / topics)+Number.EPSILON)*1000)/1000;
+    learntPercentage += parseFloat((100 / topics).toFixed(3));
     percentages[subject].learnt = learntPercentage.toString() + '%';
     percentages[subject].topicsLearnt[topicNumber] = true;
   } else {
-    learntPercentage -= Math.round(((100 / topics)+Number.EPSILON)*1000)/1000;
+    learntPercentage -= parseFloat((100 / topics).toFixed(3));
     percentages[subject].learnt = learntPercentage.toString() + '%';
     percentages[subject].topicsLearnt[topicNumber] = false;
   };
@@ -105,11 +105,11 @@ function learntChange(element) {
 function consolidatedChange(element) {
   topicNumber = parseInt(element.value);
   if (element.checked) {
-    consolidatedPercentage += Math.round(((100 / topics)+Number.EPSILON)*1000)/1000;
+    consolidatedPercentage +=  parseFloat((100 / topics).toFixed(3));
     percentages[subject].consolidated = consolidatedPercentage.toString() + '%';
     percentages[subject].topicsConsolidated[topicNumber] = true;
   } else {
-    consolidatedPercentage -= Math.round(((100 / topics)+Number.EPSILON)*1000)/1000;
+    consolidatedPercentage -=  parseFloat((100 / topics).toFixed(3));
     percentages[subject].consolidated = consolidatedPercentage.toString() + '%';
     percentages[subject].topicsConsolidated[topicNumber] = false;
   };
