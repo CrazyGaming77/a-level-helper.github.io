@@ -74,6 +74,8 @@ function barReset() {
 function barRefresh() {
 	if (Math.round(parseFloat(percentages[subject].learnt.replace("%", ""))) < 0) {
 		barReset();
+	} else if (Math.round(parseFloat(percentages[subject].learnt.replace("%", ""))) > 99) {
+		percentages[subject].learnt = "100%";
 	} else {
 		document.documentElement.style.setProperty('--learntCompleted', Math.round(parseFloat(percentages[subject].learnt.replace("%", ""))) + '%');
 		document.getElementById("learntText").innerHTML = Math.round(parseFloat(percentages[subject].learnt.replace("%", ""))) + '%';
