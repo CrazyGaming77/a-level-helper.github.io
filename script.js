@@ -73,25 +73,24 @@ function barReset() {
 
 function barRefresh() {
 	if (Math.round(parseFloat(percentages[subject].learnt.replace("%", ""))) < 1) {
-		barReset();
+		percentages[subject].learnt = "0%";
 	} else if (Math.round(parseFloat(percentages[subject].learnt.replace("%", ""))) > 99) {
 		percentages[subject].learnt = "100%";
-	} else {
-		document.documentElement.style.setProperty('--learntCompleted', Math.round(parseFloat(percentages[subject].learnt.replace("%", ""))) + '%');
-		document.getElementById("learntText").innerHTML = Math.round(parseFloat(percentages[subject].learnt.replace("%", ""))) + '%';
-		document.documentElement.style.setProperty('--consolidatedCompleted', Math.round(parseFloat(percentages[subject].consolidated.replace("%", ""))) + '%');
-		document.getElementById("consolidatedText").innerHTML = Math.round(parseFloat(percentages[subject].consolidated.replace("%", ""))) + '%';
-		for (i=0; i<topics+1; i++) {
-		if(percentages[subject].topicsLearnt[i]) {
-		  document.querySelectorAll(".topicLearn")[i-1].checked = true;
-		}
-		}; 
-		for (i=0; i<topics+1; i++) {
-		  if(percentages[subject].topicsConsolidated[i]) {
-		    document.querySelectorAll(".topicConsolidate")[i-1].checked = true;
-		  }
-		}; 
 	};
+	document.documentElement.style.setProperty('--learntCompleted', Math.round(parseFloat(percentages[subject].learnt.replace("%", ""))) + '%');
+	document.getElementById("learntText").innerHTML = Math.round(parseFloat(percentages[subject].learnt.replace("%", ""))) + '%';
+	document.documentElement.style.setProperty('--consolidatedCompleted', Math.round(parseFloat(percentages[subject].consolidated.replace("%", ""))) + '%');
+	document.getElementById("consolidatedText").innerHTML = Math.round(parseFloat(percentages[subject].consolidated.replace("%", ""))) + '%';
+	for (i=0; i<topics+1; i++) {
+	if(percentages[subject].topicsLearnt[i]) {
+	  document.querySelectorAll(".topicLearn")[i-1].checked = true;
+	}
+	}; 
+	for (i=0; i<topics+1; i++) {
+	  if(percentages[subject].topicsConsolidated[i]) {
+	    document.querySelectorAll(".topicConsolidate")[i-1].checked = true;
+	  }
+	}; 
 };
 
 function learntChange(element) {
